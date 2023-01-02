@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<title>Range Slider in HTML CSS & JavaScript</title>-->
+    <!-- CSS -->
+    <link rel="stylesheet" href="static/style.css" />
+    <!-- Unicons CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <i class="uil uil-volume-mute" id="icon"></i>
+      <input type="range" min="0" step="1" max="100" value="0" />
+      <span class="slide-value">0</span>
+    </div>
+
+    <script>
+      const icon = document.querySelector("#icon"),
+        range = document.querySelector("input"),
+        slideValue = document.querySelector(".slide-value");
+
+      range.addEventListener("input", () => {
+        let rangeVal = range.value;
+        slideValue.innerText = rangeVal;
+
+        if (rangeVal > 0) {
+          icon.classList.replace("uil-volume-mute", "uil-volume-down");
+        } else {
+          icon.classList.replace("uil-volume-down", "uil-volume-mute");
+        }
+        if (rangeVal > 30) {
+          icon.classList.replace("uil-volume-down", "uil-volume");
+        } else {
+          icon.classList.replace("uil-volume", "uil-volume-down");
+        }
+        if (rangeVal > 80) {
+          icon.classList.replace("uil-volume", "uil-volume-up");
+        } else {
+          icon.classList.replace("uil-volume-up", "uil-volume");
+        }
+      });
+    </script>
+  </body>
+</html>
